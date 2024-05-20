@@ -2,6 +2,15 @@ library(dplyr)
 library(tidyverse)
 library(sticky) #can preserve attributes
 library(ade4)
+library(roxygen2)
+library(devtools)
+
+
+#' @import dplyr
+#' @import tidyverse
+#' @import sticky
+#' @import ade4
+#' @import ade4
 
 create.dXdTdist <- function(dm # a pairwise distance matrix of features between each observation
 ){
