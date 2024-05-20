@@ -1,9 +1,4 @@
-library(dplyr)
-library(tidyverse)
-library(sticky) #can preserve attributes
-library(ade4)
-library(roxygen2)
-library(devtools)
+
 
 
 #' @import dplyr
@@ -11,12 +6,32 @@ library(devtools)
 #' @import sticky
 #' @import ade4
 #' @import ade4
+library(dplyr)
+library(tidyverse)
+library(sticky) #can preserve attributes
+library(ade4)
+library(roxygen2)
+library(devtools)
+
+#' create.dXdtdist
+#' @param dm A distance matrix of features between each observation.
+#' @returns Return a DxDt object using principal component analysis.
+
 
 create.dXdTdist <- function(dm # a pairwise distance matrix of features between each observation
 ){
   dm.pca = dudi.pco(dm, scann = FALSE, nf = 3)$li
   return(dm.pca)
 }
+
+#' create.dXdt
+#' @param case.data,time.var,timepoint.id,case.id,features,scheme Data frame with all observations,
+#' variable name or index in case.data for time observation,
+#' variable name or index in case.data for time point identifiers,
+#' variable name or index in case.data for cases,
+#' a data frame or matrix with all the features,
+#' scheme for calculating dT.
+#' @returns Return a DxDt object.
 
 
 create.dXdT <- function(case.data, # data frame with all observations
@@ -69,6 +84,10 @@ fitEachCaseMD3 <- function(dXdTobj){
          function(caseID) fitCase(subset(dXdTobj,
                                          Case==caseID)))
 }
+
+#' process_data
+#' @param data,time_scheme Data to be processed, two schemes, baseline and interpoint
+#' @returns Return processed data based on scheme of calculation
 
 
 process_data = function(data,time_scheme) {
@@ -138,14 +157,7 @@ process_data = function(data,time_scheme) {
 }
 
 
-'create.dXdTdist <- function(case.data, # data frame with all observations
-                            time.var, # variable name or index in case.data for time observation
-                            timepoint.id = NULL, # variable name or index in case.data for time point identifiers
-                            case.id = NULL, # variable name or index in case.data for cases
-                            dm, # a pairwise distance matrix of features between each observation
-                            scheme # scheme for calculating dT
 
-)'
 
 #next steps
 
