@@ -5,7 +5,7 @@
 #' @import tidyverse
 #' @import sticky
 #' @import ade4
-#' @import ade4
+#' @import stats
 library(dplyr)
 library(tidyverse)
 library(sticky) #can preserve attributes
@@ -20,7 +20,7 @@ library(devtools)
 
 create.dXdTdist <- function(dm # a pairwise distance matrix of features between each observation
 ){
-  dm.pca = dudi.pco(dm, scann = FALSE, nf = 3)$li
+  dm.pca = ade4::dudi.pco(dm, scann = FALSE, nf = 3)$li
   return(dm.pca)
 }
 
@@ -70,7 +70,7 @@ create.dXdT <- function(case.data, # data frame with all observations
 # Column names: Case, Start.tp, End.tp, dT, dX
 
 fitCase <- function(dXdTobj){
-  glm(formula = dX^2/dT ~ dT,
+  stats::glm(formula = dX^2/dT ~ dT,
       family = gaussian(link = "identity"),
       data = dXdTobj)
 }
@@ -85,13 +85,13 @@ fitEachCaseMD3 <- function(dXdTobj){
                                          Case==caseID)))
 }
 
+
 #' process_data
 #' @param data,time_scheme Data to be processed, two schemes, baseline and interpoint
 #' @returns Return processed data based on scheme of calculation
 
-
 process_data = function(data,time_scheme) {
-  sticky(data) #preserve original data as attribute in dxdt object
+  sticky::sticky(data) #preserve original data as attribute in dxdt object
   #mat = matrix(, nrow = nrow(data)-1, ncol = 5)
   mat = matrix(nrow = nrow(data)-1, ncol = 5)
   mat = as.data.frame(mat)

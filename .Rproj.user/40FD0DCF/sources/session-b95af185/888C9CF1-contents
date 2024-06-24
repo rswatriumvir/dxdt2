@@ -1,6 +1,0 @@
-library(devtools)
-install_github("rswatriumvir/dxdt2")
-
-
-detach("package:md3Beta", unload = TRUE)
-install.packages("md3Beta", dependencies=TRUE)
