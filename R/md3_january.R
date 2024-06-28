@@ -16,6 +16,7 @@ library(devtools)
 #' create.dXdtdist
 #' @param dm A distance matrix of features between each observation.
 #' @returns Return a DxDt object using principal component analysis.
+#' @export
 
 
 create.dXdTdist <- function(dm # a pairwise distance matrix of features between each observation
@@ -32,6 +33,7 @@ create.dXdTdist <- function(dm # a pairwise distance matrix of features between 
 #' a data frame or matrix with all the features,
 #' scheme for calculating dT.
 #' @returns Return a DxDt object.
+#' @export
 
 
 create.dXdT <- function(case.data, # data frame with all observations
@@ -89,6 +91,7 @@ fitEachCaseMD3 <- function(dXdTobj){
 #' process_data
 #' @param data,time_scheme Data to be processed, two schemes, baseline and interpoint
 #' @returns Return processed data based on scheme of calculation
+#' @export
 
 process_data = function(data,time_scheme) {
   sticky::sticky(data) #preserve original data as attribute in dxdt object

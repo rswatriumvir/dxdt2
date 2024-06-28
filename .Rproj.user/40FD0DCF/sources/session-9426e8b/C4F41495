@@ -3,7 +3,7 @@
     "path": "~/dxdt/dxdt/R/md3_january.R",
     "project_path": "R/md3_january.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "139663641",
     "contents": "",
     "dirty": false,
     "created": 1716227805298.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "156,1",
-        "scrollLine": "0"
+        "cursorPosition": "93,10",
+        "scrollLine": "69"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719256574,
+    "lastKnownWriteTime": 1719598394,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719256574294,
+    "last_content_update": 1719598394718,
     "read_only": false,
     "read_only_alternatives": []
 }
